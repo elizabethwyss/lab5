@@ -3,12 +3,12 @@
   </head>
 
   <body>
-    <h1>New Messageboard User Creation Form</h1><hr>
-    <form action="CreateUser.php" method="post">
-      Input new username:<br>
+    <h1>Create New Messageboard Post</h1><hr>
+    <form action="CreateUser.php" method="post" id="userpost">
+      Enter username:
       <input type="text" name="username">
-      <br>
-      <input type="submit" value="Submit Username">
+      <input type="submit" value="Submit Post">
     </form>
+    <textarea rows="5" cols="70" name="content" form="userpost">Enter Post Here</textarea>
   </body>
 </html>
