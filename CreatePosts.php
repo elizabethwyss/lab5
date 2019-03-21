@@ -10,7 +10,19 @@ if ($mysqli->connect_errno)
     exit();
 }
 
-  $query = "";
+$query = "SELECT user_id FROM Users WHERE user_id='" . $username . "'";
+
+if ($result = $mysqli->query($query))
+{
+    /* fetch associative array */
+    while ($row = $result->fetch_assoc())
+    {
+        
+    }
+
+    /* free result set */
+    $result->free();
+}
 
 /* close connection */
 $mysqli->close();
