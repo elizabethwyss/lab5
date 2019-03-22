@@ -5,9 +5,36 @@
   <body>
     <h1>View User Posts</h1><hr>
     <form action="ViewUserPosts.php" method="post">
-      Select a user to view their posts:
+      Select a user to view their posts:<br><br>
+      <select name="username">
 
+      <?php
+      $mysqli = new mysqli("mysql.eecs.ku.edu", "b040w377", "Uefai3Ai", "b040w377");
 
+      /* check connection */
+      if ($mysqli->connect_errno)
+      {
+          printf("Connect failed: %s\n", $mysqli->connect_error);
+          exit();
+      }
+
+      $query = "SELECT * FROM Users";
+
+      if ($result = $mysqli->query($query))
+      {
+          /* fetch associative array */
+          while ($row = $result->fetch_assoc())
+          {
+            echo "<option value = 'test'>" . $row["user_id"] . "</option>";
+          }
+
+          /* free result set */
+          $result->free();
+      }
+
+      ?>
+
+    </select><br><br>
       <input type="submit" value="Submit">
     </form>
 
