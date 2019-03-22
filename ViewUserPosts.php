@@ -10,7 +10,7 @@
   }
 
   echo "<h1>List of all Posts Written by " . $username . "</h1><hr>";
-  echo "<table><tr><th>Posted Content:</th></tr>";
+  echo "<table><tr><th align='left'>Posted Content:</th></tr>";
 
  $query = "SELECT * FROM Posts WHERE author_id='" . $username . "'";
 
@@ -19,7 +19,7 @@
      /* fetch associative array */
      while ($row = $result->fetch_assoc())
      {
-       echo "<tr><td>" . $row["content"] . "</td></tr>";
+       echo "<tr><td>&nbsp</td></tr> <tr><td>" . $row["content"] . "</td></tr>";
      }
 
      /* free result set */
