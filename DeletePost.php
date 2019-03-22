@@ -12,15 +12,20 @@ if ($mysqli->connect_errno)
 
 foreach($toDelete as $id)
 {
-  echo "<p>" . $id . "</p>";
+  $query = "DELETE FROM Posts WHERE post_id='" . $id . "'";
+
+  if ($mysqli->query($query))
+  {
+    printf("Post with id " . $id . " deleted successfully.");
+    printf("\n");
+  }
+  else
+  {
+    printf("Unexpected Error: Post with id" . $id . " could not be deleted. Terminating process.");
+    exit();
+  }
 }
 
-$query = "SELECT * FROM Posts";
-
-if ($mysqli->query($query))
-{
-
-}
-
+printf("All Posts deleted successfully!");
 
 ?>
