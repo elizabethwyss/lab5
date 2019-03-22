@@ -17,7 +17,7 @@ foreach($toDelete as $id)
   if ($mysqli->query($query))
   {
     printf("Post with id " . $id . " deleted successfully.");
-    printf("\n");
+    echo "<br>";
   }
   else
   {
