@@ -8,26 +8,22 @@
       exit();
   }
 
- echo "<h1>List of all users:</h1><hr>"
- echo "<table><tr><th>Username</th></tr>"
+ echo "<h1>List of all Users</h1><hr>";
+ echo "<table><tr><th>Username:</th></tr>";
 
-  $query = "SELECT * FROM Users";
+ $query = "SELECT * FROM Users";
 
-  if ($result = $mysqli->query($query))
-  {
-      /* fetch associative array */
-      while ($row = $result->fetch_assoc())
-      {
-        echo "<tr><td>" . $row["user_id"] . "</td></tr>";
-      }
-      else
-      {
-        printf("Error: user " . $username . " not found.");
-      }
+ if ($result = $mysqli->query($query))
+ {
+     /* fetch associative array */
+     while ($row = $result->fetch_assoc())
+     {
+       echo "<tr><td>" . $row["user_id"] . "</td></tr>";
+     }
 
-      /* free result set */
-      $result->free();
-  }
+     /* free result set */
+     $result->free();
+ }
 
   echo "</table>";
 
